@@ -20,7 +20,7 @@ class GradeSerializer(serializers.ModelSerializer):
       assignement_id = request.GET.get("id")
       staff = staff_data.objects.filter(name = User.objects.get(username = username)  )
       assignements_obj = assignements.objects.get(id = assignement_id)
-      if staff!= None and (assignements_obj.submitted_to == staff.first() or staff.first().designation == "Principle") and assignements_obj.is_draft == "False":
+      if staff != None and (assignements_obj.submitted_to == staff.first() or staff.first().designation == "Principle") and assignements_obj.is_draft == "False":
         value = validated_data.get("value", instance.value)
         instance.value = value
         instance.save()
